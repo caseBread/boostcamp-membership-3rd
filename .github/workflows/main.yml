@@ -61,7 +61,6 @@ jobs:
                       owner: context.repo.owner,
                       repo: context.repo.repo,
                       pull_number: node.number,
-                      merge_method: "rebase"
                    })
                  }
                } catch (e) {
