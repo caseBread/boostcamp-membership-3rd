@@ -2,9 +2,8 @@
   "name": "fleamarket",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --watch src/ src/server/server.js",
-    "build": "webpack --watch --config ./src/client/webpack.config.js",
-    "start": "webpack-dev-server --mode development --open"
+    "dev": "webpack serve",
+    "build": "webpack --watch --config webpack.config.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

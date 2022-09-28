@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "none",
-  entry: path.resolve(__dirname, "./webpack.js"),
+  entry: path.resolve(__dirname, "./src/client/webpack.js"),
   output: {
-    path: path.resolve(__dirname, "./public"),
+    path: path.resolve(__dirname, "./src/client/public"),
     filename: "index-build.js",
   },
   module: {
@@ -35,7 +35,7 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 9000,
+    port: 8080,
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -43,7 +43,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin({ filename: "build.js" }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./views/index.html"),
+      template: path.resolve(__dirname, "./src/client/views/index.html"),
       title: "fleamarket",
       // 문서 메타
       meta: {
