@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+@mixin fontSetting($size: 14px, $weight: 400, $color: #222222) {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+title {
+  @include fontSetting(14px, 400);
+}

@@ -3,7 +3,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon --watch src/ src/server.js",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --watch --config webpack.config.js",
     "start": "webpack-dev-server --mode development --open"
   },
   "dependencies": {

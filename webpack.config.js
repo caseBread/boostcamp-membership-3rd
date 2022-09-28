@@ -7,7 +7,7 @@ module.exports = {
   mode: "none",
   entry: "./src/webpack.js",
   output: {
-    path: path.resolve(__dirname, "./src/public"),
+    path: path.resolve(__dirname, "./src/client/public"),
     filename: "index-build.js",
   },
   module: {
