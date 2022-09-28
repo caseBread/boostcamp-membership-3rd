@@ -1,2 +1,6 @@
 node_modules/
 package-lock.json
+Main.js
+Main.scss
+Product.js
+Product.scss
