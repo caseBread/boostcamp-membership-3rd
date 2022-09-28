@@ -7,11 +7,11 @@ const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
 const port = 3000;
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const { createTable } = require("./models/db");
 
 const app = express();
 
+// session setting
 const sessionObj = {
   secret: "fleamarket-secret",
   resave: false,
@@ -21,12 +21,10 @@ const sessionObj = {
     maxAge: 24000 * 60 * 60,
   },
 };
-
 app.use(session(sessionObj));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -37,7 +35,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "source")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

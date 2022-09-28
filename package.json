@@ -2,7 +2,7 @@
   "name": "fleamarket",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --watch src/ src/server.js",
+    "dev": "nodemon --watch src/ src/server/server.js",
     "build": "webpack --watch --config webpack.config.js",
     "start": "webpack-dev-server --mode development --open"
   },
@@ -17,7 +17,14 @@
     "memorystore": "^1.6.7",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
-    "node-sass": "^7.0.3"
+    "node-sass": "^7.0.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "nodemonConfig": {
     "ext": "js,html,css,ejs"
