@@ -1,9 +1,10 @@
 import "./Product.scss";
 
-function Product() {
+function Product(props) {
+  console.log(props);
   return (
-    <div>
-      <div>그림</div>
+    <div className="product">
+      <div>{props.name}</div>
       <div>그림설명</div>
       <div>기타 등등</div>
     </div>
