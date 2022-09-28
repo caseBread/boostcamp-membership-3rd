@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "none",
-  entry: "./src/client/webpack.js",
+  entry: path.resolve(__dirname, "./webpack.js"),
   output: {
-    path: path.resolve(__dirname, "./src/client/public"),
+    path: path.resolve(__dirname, "./public"),
     filename: "index-build.js",
   },
   module: {
@@ -42,5 +42,17 @@ module.exports = {
       filename: "style.css", // 원하는 filename
     }),
     new CleanWebpackPlugin({ filename: "build.js" }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "./views/index.html"),
+      title: "fleamarket",
+      // 문서 메타
+      meta: {
+        "utf-8": {
+          charset: "utf-8",
+        },
+        viewport: "width=device-width, initial-scale=1",
+        description: "boostcamp membership 3rd project",
+      },
+    }),
   ],
 };
