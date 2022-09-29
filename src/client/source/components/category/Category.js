@@ -1,10 +1,10 @@
+import TopBar from "../top-bar/TopBar";
 import "./Category.scss";
 
 function Category() {
   return (
     <div>
-      <p>hello</p>
-      <p>this is category</p>
+      <TopBar title="카테고리" />
     </div>
   );
 }

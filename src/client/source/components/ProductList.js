@@ -12,8 +12,9 @@ function ProductList() {
     const cookie = getCookieToObject();
     console.log(cookie);
 
+    // address 를 쿠키에 저장하고 가져오는 방식이 맞을까?
     axios
-      .get(`/product/get-list?address=${cookie.address}`) // 아마 user.address는 쿠키에서 가져오는건가 ?
+      .get(`/product/get-list?address=${cookie.address}`)
       .then((res) => setList(res.data))
       .catch((err) => console.log(err));
   }, []);

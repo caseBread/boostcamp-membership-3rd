@@ -55,6 +55,20 @@ const createProductTable = async () => {
   }
 };
 
+const checkUser = async (id) => {
+  const connection = connectionPool.getConnection();
+  const q = `
+    SELECT * FROM user
+    WHERE user_id = "${id}"
+  `;
+
+  try {
+    return (await connection).query(q);
+  } catch (err) {
+    throw err;
+  }
+};
+
 const selectProductList = async (address) => {
   const connection = connectionPool.getConnection();
   const q = `
@@ -80,4 +94,5 @@ module.exports = {
   selectProductList,
   createProductTable,
   createUserTable,
+  checkUser,
 };
