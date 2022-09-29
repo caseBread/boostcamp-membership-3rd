@@ -25,22 +25,21 @@ const createUserTable = async () => {
     throw err;
   }
 };
-createUserTable();
 
 const createProductTable = async () => {
   const connection = connectionPool.getConnection();
   const q = `
     CREATE TABLE IF NOT EXISTS product 
       (
-        product_id INT NOT NULL,
+        product_id INT NOT NULL AUTO_INCREMENT,
         product_name VARCHAR(45) NOT NULL,
         address VARCHAR(45) NOT NULL,
-        update_time DATETIME NOT NULL,
+        update_time TIMESTAMP DEFAULT NOW(),
         price INT NULL,
         chat_count INT NULL,
         heart_count INT NULL,
         view_count INT NULL,
-        product_image VARCHAR(100) NULL,
+        product_image VARCHAR(200) NULL,
         category VARCHAR(45) NULL,
         product_content VARCHAR(45) NOT NULL,
         product_status VARCHAR(45) NOT NULL,
@@ -55,13 +54,12 @@ const createProductTable = async () => {
     throw err;
   }
 };
-createProductTable();
 
 const selectProductList = async (address) => {
   const connection = connectionPool.getConnection();
   const q = `
-    SELECT * FROM product 
-    WHERE address = '${address}'
+    SELECT * FROM product
+    WHERE address = "${address}"
     ORDER BY update_time DESC
     ;
   `;
@@ -72,6 +70,11 @@ const selectProductList = async (address) => {
     throw err;
   }
 };
+
+(async () => {
+  await createUserTable();
+  await createProductTable();
+})();
 
 module.exports = {
   selectProductList,

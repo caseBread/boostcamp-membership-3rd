@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Product.scss";
 import heartBtnImg from "../image/heart-btn.svg";
 import speechBubbleImg from "../image/speech-bubble.svg";
+import smallHeartImg from "../image/small-heart.svg";
 
 function Product(props) {
   console.log(`create item : ${props.object.product_name}`);
@@ -27,9 +28,10 @@ function Product(props) {
         <div className="heart">
           <img src={heartBtnImg}></img>
         </div>
-        <div className="chat-count">
+        <div className="count">
           <img className="speech-bubble" src={speechBubbleImg}></img>
           <span>{obj.chat_count}</span>
+          <img className="small-heart" src={smallHeartImg}></img>
           <span>{obj.heart_count}</span>
         </div>
       </div>

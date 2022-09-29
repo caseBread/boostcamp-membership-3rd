@@ -12,6 +12,9 @@ function Main() {
   //   []
   // );
 
+  // 임시로 쿠키 저장하기.
+  document.cookie = "address=역삼동";
+
   return (
     <div>
       <MainTopBar />
