@@ -1,9 +1,10 @@
+import TopBar from "../top-bar/TopBar";
 import "./Menu.scss";
 
 function Menu() {
   return (
     <div>
-      <p>this is menu</p>
+      <TopBar title="메뉴" />
     </div>
   );
 }
