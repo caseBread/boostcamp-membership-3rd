@@ -1,8 +1,14 @@
 const express = require("express");
+const loginAPI = require("./login-api");
+const productAPI = require("./product-api");
+
 const router = express.Router();
 
-/* GET home page. */
-router.get("/", async function (req, res, next) {
+router.use("/login", loginAPI);
+router.use("/product", productAPI);
+
+// 아무것도 만족하지 않으면 여기로 옴.
+router.get("/*", async function (req, res, next) {
   res.render("index");
 });
 

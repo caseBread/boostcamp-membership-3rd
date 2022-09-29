@@ -3,7 +3,7 @@
 .product {
   padding: 10px;
   display: flex;
-  border-bottom: 1px solid #999999;
+  border-bottom: 0.5px solid #999999;
   .picture {
     width: 40%;
     img {
@@ -41,14 +41,10 @@
       margin: 0 auto;
     }
 
-    .chat-count {
-      .heart-img {
-        padding: 0px 4px;
-      }
-
+    .count > * {
       @include fontSetting(14px, 400, #888888);
       margin: 0 auto;
-      padding: 3px;
+      padding: 1px;
     }
   }
 }
