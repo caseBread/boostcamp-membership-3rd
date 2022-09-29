@@ -7,47 +7,65 @@ const connectionPool = mysql.createPool({
   database: "fleamarketdb",
 });
 
-const createTable = async () => {
+const createUserTable = async () => {
   const connection = connectionPool.getConnection();
   const q = `
-        CREATE TABLE IF NOT EXISTS fleamarket
-        (
-            id VARCHAR(45) NOT NULL,
-            password VARCHAR(45) NOT NULL,
-            name VARCHAR(45) NOT NULL
-        );
+    CREATE TABLE IF NOT EXISTS user
+      (
+        user_id INT NOT NULL,
+        name VARCHAR(45) NOT NULL,
+        address VARCHAR(45) NOT NULL,
+        PRIMARY KEY (user_id)
+      );
     `;
+
   try {
     (await connection).query(q);
   } catch (err) {
     throw err;
   }
 };
+createUserTable();
 
-/**
- *
- * @param {Object} input id password
- * @returns input과 동일한 data가 있으면 그 data 반환.
- */
-const findUserByDB = async (input) => {
+const createProductTable = async () => {
   const connection = connectionPool.getConnection();
-  const columnsToString = columns.join(",");
   const q = `
-        SELECT * FROM fleamarket
-        WHERE id = '${input.id}' AND password = '${input.password}'
-        ;
+    CREATE TABLE IF NOT EXISTS product 
+      (
+        product_id INT NOT NULL,
+        product_name VARCHAR(45) NOT NULL,
+        address VARCHAR(45) NOT NULL,
+        update_time DATETIME NOT NULL,
+        price INT NULL,
+        chat_count INT NULL,
+        heart_count INT NULL,
+        view_count INT NULL,
+        product_image VARCHAR(100) NULL,
+        category VARCHAR(45) NULL,
+        product_content VARCHAR(45) NOT NULL,
+        product_status VARCHAR(45) NOT NULL,
+        seller_id VARCHAR(45) NOT NULL,
+        PRIMARY KEY (product_id)
+      );
     `;
 
   try {
-    return (await connection).query(q);
+    (await connection).query(q);
   } catch (err) {
     throw err;
   }
 };
+createProductTable();
 
-const tempSelect = async () => {
+const selectProductList = async (address) => {
   const connection = connectionPool.getConnection();
-  const q = `SELECT * FROM fleamarket;`;
+  const q = `
+    SELECT * FROM product 
+    WHERE address = '${address}'
+    ORDER BY update_time DESC
+    ;
+  `;
+
   try {
     return (await connection).query(q);
   } catch (err) {
@@ -55,4 +73,8 @@ const tempSelect = async () => {
   }
 };
 
-module.exports = { createTable, findUserByDB, tempSelect };
+module.exports = {
+  selectProductList,
+  createProductTable,
+  createUserTable,
+};

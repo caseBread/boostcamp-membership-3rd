@@ -1,29 +1,29 @@
+import userEvent from "@testing-library/user-event";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { getCookieToObject } from "../../utils/util";
 import Product from "./Product";
 import "./ProductList.scss";
 
 function ProductList() {
-  const productNames = [
-    {
-      name: "파랑 선풍기",
-      address: "역삼동",
-      ago: 2,
-      price: 24500,
-      chatCount: 1,
-      img: "https://user-images.githubusercontent.com/92029332/192843294-3d3a66b7-c171-4626-9475-b64445aa9447.png",
-    },
-    {
-      name: "잎사귀 포스터",
-      address: "역삼동",
-      ago: 3,
-      price: 59000,
-      chatCount: 2,
-      img: "https://user-images.githubusercontent.com/92029332/192860107-f1fed102-8bcf-4517-b2bc-a857bcdd74ff.png",
-    },
-  ]; // 임시 데이터
-  const list = productNames.map((product, index) => (
-    <Product object={product} key={index} /> // 여기서 map사용할 때 key를 넣으래. 형제끼리 구분하기 위함 (https://crong-dev.tistory.com/47)
-  ));
-  return <div>{list}</div>;
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const cookie = getCookieToObject();
+
+    axios
+      .get(`/product/get-list`, { address: cookie.address }) // 아마 user.address는 쿠키에서 가져오는건가 ?
+      .then((res) => setList(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  return (
+    <div>
+      {list.map((product, index) => (
+        <Product object={product} key={index} />
+      ))}
+    </div>
+  );
 }
 
 export default ProductList;

@@ -7,7 +7,6 @@ const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
 const port = 3000;
 const indexRouter = require("./routes/index");
-const { createTable } = require("./models/db");
 
 const app = express();
 
@@ -25,6 +24,10 @@ app.use(session(sessionObj));
 
 // view engine setup
 //app.set("views", path.join(__dirname, "views"));
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "html");
+
+app.set("views", path.join(__dirname, "../client/views"));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -41,22 +44,16 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+// // error handler
+// app.use(function (err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
-});
-
-// create table
-(async () => {
-  //await createDB();
-  await createTable();
-})();
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render("error");
+// });
 
 app.listen(port, () => {
   console.log(`서버가 생성되었습니다. port:${port}`);
