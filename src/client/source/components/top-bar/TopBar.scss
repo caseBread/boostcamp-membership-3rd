@@ -8,7 +8,10 @@
   width: 100%;
   height: 56px;
   background-color: #f6f6f6;
-  padding: 0px 20px;
+
+  > * {
+    margin: 10px;
+  }
 
   .arrow {
     padding: 3px 4px 0px 4px;
@@ -16,5 +19,9 @@
 
   .title {
     @include fontSetting(16px, 400);
+  }
+
+  .temp {
+    padding: 8px;
   }
 }

@@ -7,6 +7,7 @@ import smallHeartImg from "../image/small-heart.svg";
 function Product(props) {
   console.log(`create item : ${props.object.product_name}`);
   const obj = { ...props.object };
+
   return (
     <Link
       to=""
@@ -20,7 +21,7 @@ function Product(props) {
       <div className="explain">
         <div className="product-name">{obj.product_name}</div>
         <div className="update-data">
-          {obj.address} ∙ {obj.update_time}시간 전
+          {obj.address} ∙ {2 /** obj.update-time */}시간 전
         </div>
         <div className="price">{obj.price.toLocaleString()}원</div>
       </div>

@@ -1,0 +1,30 @@
+@import "../../styles/style.scss";
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    margin-top: 24px;
+    width: 80%;
+    height: 38px;
+    border-radius: 8px;
+    background: none;
+    border: 1px solid #d7d7d7;
+    padding: 0px;
+  }
+
+  .input-id {
+    text-indent: 16px;
+  }
+
+  .login-btn {
+    @include fontSetting(12px, 500, #ffffff);
+    background-color: #045d8b;
+  }
+
+  .register-btn {
+    border: none;
+  }
+}
