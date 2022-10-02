@@ -1,10 +1,20 @@
+import axios from "axios";
 import TopBar from "../top-bar/TopBar";
 import "./Login.scss";
 
 function Login() {
+  function githubLogin() {
+    location.href = "/login/github";
+  }
+
+  function accessUser() {
+    axios.get("/login/access");
+  }
+
   return (
-    <div>
+    <div className="login">
       <TopBar title="로그인" />
+
       <form method="get" action="/login" name="login" className="login-form">
         <input
           type="text"
@@ -16,7 +26,13 @@ function Login() {
         <button type="submit" className="login-btn">
           로그인
         </button>
-        <button className="register-btn">회원가입</button>
+        <input type="button" className="register-btn" value="회원가입" />
+        <input
+          type="button"
+          className="github-login-btn"
+          onClick={githubLogin}
+          value="깃허브 로그인"
+        />
       </form>
     </div>
   );

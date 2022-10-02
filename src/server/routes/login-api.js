@@ -1,6 +1,8 @@
+const { default: axios } = require("axios");
 const express = require("express");
 const { checkUser } = require("../models/db");
 const router = express.Router();
+const oauth = require("../oauth.json");
 
 router.get("/", async function (req, res, next) {
   const { id } = req.query;
@@ -15,6 +17,42 @@ router.get("/", async function (req, res, next) {
     res.status(401);
     // res.redirect(로그인)   // 다시 로그인으로 돌아가야함. // history
   }
+});
+
+router.get("/github", async function (req, res, next) {
+  console.log(13);
+
+  res.redirect(
+    `https://github.com/login/oauth/authorize?client_id=${oauth.client_id}&redirect_uri=http://localhost:3000/login/approval`
+  );
+});
+
+router.get("/approval", async function (req, res, next) {
+  const { code } = req.query; // 이게 access token ?
+  console.log(code);
+
+  const access_token = await axios
+    .post(
+      `https://github.com/login/oauth/access_token?client_id=${oauth.client_id}&client_secret=${oauth.client_secret}&code=${code}`
+    )
+    .then((res) => {
+      return res.data.split("&")[0].split("=")[1];
+    });
+  console.log(access_token);
+  oauth.access_token = access_token;
+  res.redirect("/");
+});
+
+router.get("/access", async function (req, res, next) {
+  const user_data = await axios
+    .get("https://api.github.com/user", {
+      headers: {
+        Authorization: `token ${oauth.access_token}`,
+      },
+    })
+    .then((res) => res) // res.data = user data
+    .catch((res) => res.response);
+  res.send({ status: user_data.status, data: user_data.data }); // 여기에 쌩 user_data 날리면 TypeError: Converting circular structure to JSON 뜸
 });
 
 // 유저 확인

@@ -26,6 +26,11 @@ const createUserTable = async () => {
   }
 };
 
+/**
+ * Type orm
+ * query builder
+ */
+
 const createProductTable = async () => {
   const connection = connectionPool.getConnection();
   const q = `
@@ -85,6 +90,7 @@ const selectProductList = async (address) => {
   }
 };
 
+// 서버 최초 실행 시 테이블 생성
 (async () => {
   await createUserTable();
   await createProductTable();

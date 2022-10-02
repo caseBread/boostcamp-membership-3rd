@@ -1,6 +1,6 @@
 @import "../../styles/style.scss";
 
-.login-form {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,16 +15,16 @@
     padding: 0px;
   }
 
-  .input-id {
-    text-indent: 16px;
-  }
-
-  .login-btn {
-    @include fontSetting(12px, 500, #ffffff);
-    background-color: #045d8b;
-  }
-
-  .register-btn {
+  .user-name {
+    @include fontSetting(14px, 500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
+  }
+
+  .logout-btn {
+    @include fontSetting(16px, 500, #ffffff);
+    background-color: #045d8b;
   }
 }

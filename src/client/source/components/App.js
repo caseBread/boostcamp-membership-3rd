@@ -4,8 +4,8 @@ import "./App.scss";
 import Category from "./category/Category";
 import Menu from "./menu/Menu";
 import SetLocation from "./set-location/SetLocation";
-import Login from "./login/Login";
 import Main from "./Main";
+import User from "./user/User";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/category" element={<Category />}></Route>
         <Route path="/set-location" element={<SetLocation />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/user" element={<User />}></Route>
         <Route path="/menu" element={<Menu />}></Route>
       </Routes>
     </BrowserRouter>
