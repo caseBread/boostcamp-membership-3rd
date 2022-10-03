@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 
 function User() {
   const [response, setResponse] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("/login/access").then((res) => {
@@ -29,6 +31,7 @@ function User() {
     );
   } else {
     console.log("rendering error");
+    navigate(-1);
   }
 }
 
