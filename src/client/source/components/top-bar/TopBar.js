@@ -16,7 +16,7 @@ function TopBar(props) {
         <img src={leftArrowImg} alt=""></img>
       </span>
       <span className="title">{title}</span>
-      <span></span>
+      <span className="temp"></span>
     </div>
   );
 }

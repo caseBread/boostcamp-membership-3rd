@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 /*!*******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/top-bar/TopBar.scss ***!
   \*******************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
->>>>>>> dev
 /*!************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/Product.scss ***!
   \************************************************************************************************************************************/
@@ -13,12 +10,18 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/top-bar/main-top-bar.scss ***!
   \*************************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!***************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/user/Login.scss ***!
+  \***************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/user/Logout.scss ***!
+  \****************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
 /*!********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/App.scss ***!
   \********************************************************************************************************************************/
 
-<<<<<<< HEAD
-=======
 /*!***********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/top-bar/TopBar.scss (1) ***!
   \***********************************************************************************************************************************************/
@@ -35,8 +38,9 @@ title {
   align-items: center;
   width: 100%;
   height: 56px;
-  background-color: #f6f6f6;
-  padding: 0px 20px; }
+  background-color: #f6f6f6; }
+  .bar-background > * {
+    margin: 10px; }
   .bar-background .arrow {
     padding: 3px 4px 0px 4px; }
   .bar-background .title {
@@ -45,8 +49,9 @@ title {
     font-size: 16px;
     font-weight: 400;
     color: #222222; }
+  .bar-background .temp {
+    padding: 8px; }
 
->>>>>>> dev
 /*!**********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/category/Category.scss ***!
   \**********************************************************************************************************************************************/
@@ -58,10 +63,6 @@ title {
 /*!*****************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/set-location/SetLocation.scss ***!
   \*****************************************************************************************************************************************************/
-
-/*!****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/login/Login.scss ***!
-  \****************************************************************************************************************************************/
 
 /*!*********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/Main.scss ***!
@@ -80,7 +81,7 @@ title {
 .product {
   padding: 10px;
   display: flex;
-  border-bottom: 1px solid #999999; }
+  border-bottom: 0.5px solid #999999; }
   .product .picture {
     width: 40%; }
     .product .picture img {
@@ -116,16 +117,14 @@ title {
     justify-content: space-between; }
     .product .about .heart {
       margin: 0 auto; }
-    .product .about .chat-count {
+    .product .about .count > * {
       font-family: "Noto Sans KR";
       font-style: normal;
       font-size: 14px;
       font-weight: 400;
       color: #888888;
       margin: 0 auto;
-      padding: 3px; }
-      .product .about .chat-count .heart-img {
-        padding: 0px 4px; }
+      padding: 1px; }
 
 /*!****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/ProductList.scss ***!
@@ -157,10 +156,90 @@ title {
   .main-top-bar .set-location img {
     padding: 0px 4px; }
 
+/*!*******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/user/Login.scss (1) ***!
+  \*******************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+.login input,
+.login button,
+.login .github-login-btn {
+  margin-top: 24px;
+  width: 80%;
+  height: 38px;
+  border-radius: 8px;
+  background: none;
+  border: 1px solid #d7d7d7;
+  padding: 0px; }
+
+.login .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .login .login-form .input-id {
+    text-indent: 16px; }
+  .login .login-form .login-btn {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #045d8b; }
+  .login .login-form .register-btn {
+    border: none; }
+
+/*!********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/user/Logout.scss (1) ***!
+  \********************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  main > * {
+    margin-top: 24px;
+    width: 80%;
+    height: 38px;
+    border-radius: 8px;
+    background: none;
+    border: 1px solid #d7d7d7;
+    padding: 0px; }
+  main .user-name {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; }
+  main .logout-btn {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #045d8b; }
+
 /*!***********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/index.scss ***!
   \***********************************************************************************************************************/
 html,
 body {
-  width: 320px; }
+  width: 320px;
+  height: 510px;
+  margin: 0 auto;
+  border: 1px solid #d7d7d7; }
 

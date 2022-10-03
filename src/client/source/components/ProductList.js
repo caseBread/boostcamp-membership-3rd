@@ -14,7 +14,7 @@ function ProductList() {
 
     // address 를 쿠키에 저장하고 가져오는 방식이 맞을까?
     axios
-      .get(`/product/get-list?address=${cookie.address}`)
+      .get(`/product/list?address=${cookie.address}`)
       .then((res) => setList(res.data))
       .catch((err) => console.log(err));
   }, []);

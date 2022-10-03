@@ -1,27 +1,25 @@
 const express = require("express");
-const { checkUser } = require("../models/db");
+const passport = require("passport");
+const { isAuthenticated } = require("../controllers/authenticated");
 const router = express.Router();
 
-router.get("/", async function (req, res, next) {
-  const { id } = req.query;
-  const check = checkUser(id);
-
-  if (check) {
-    res.status(200);
-  } else {
-    res.status(401);
-  }
+router.get("/", isAuthenticated, async function (req, res, next) {
+  res.status(200).send(req.user);
 });
 
-router.get("/user", async function (req, res, next) {
-  const loginToken = req.cookies["LOGIN_TOKEN"];
-  if (!loginToken) {
-    res.status(401);
-    return;
+// passport 코드
+router.get("/github", passport.authenticate("github"));
+router.get(
+  "/github/callback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  (req, res) => {
+    res.redirect("/");
   }
+);
 
-  res.send(loginToken);
-  res.status(200);
+router.get("/logout", async function (req, res, next) {
+  req.session.destroy(() => req.session);
+  res.status(204).redirect("/");
 });
 
 router.get("/*", async function (req, res, next) {

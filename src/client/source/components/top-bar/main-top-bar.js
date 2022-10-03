@@ -18,7 +18,7 @@ function MainTopBar() {
         <span className="location">역삼동</span>
       </span>
       <span>
-        <Link to="/login" className="set-user-btn">
+        <Link to="/user" className="set-user-btn">
           <img src={userImg} alt=""></img>
         </Link>
         <Link to="/menu" className="menu-btn">
