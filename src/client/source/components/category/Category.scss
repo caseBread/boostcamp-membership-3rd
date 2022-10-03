@@ -1,0 +1,30 @@
+@import "../../styles/style.scss";
+
+.category {
+  .container {
+    display: grid;
+    margin: 24px;
+    gap: 10% 5%;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: stretch;
+    .item {
+      margin: 0 auto;
+      .icon {
+        margin: 0 auto;
+        height: 40px;
+        width: 40px;
+        background-color: #f6f6f6;
+        border: 1px solid #d7d7d7;
+        border-radius: 6px;
+      }
+
+      .item-name {
+        margin: 0 auto;
+        @include fontSetting(10px, 400);
+        text-align: center;
+      }
+    }
+  }
+}
