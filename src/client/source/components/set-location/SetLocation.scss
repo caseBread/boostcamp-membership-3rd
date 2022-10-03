@@ -1,0 +1,40 @@
+@import "../../styles/style.scss";
+
+.set-location {
+  .main {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 24px;
+    text-align: center;
+    .notice {
+      @include fontSetting(12px, 400, #828282);
+    }
+
+    .buttons {
+      .address-btn {
+        @include fontSetting(14px, 600, #045d8b);
+
+        margin: 10% 5%;
+        width: 35%;
+        padding: 6px 16px;
+        background: #ffffff;
+        border: 1.5px solid #045d8b;
+        border-radius: 8px;
+
+        .address-text {
+          float: left;
+        }
+
+        .x-mark {
+          float: right;
+        }
+      }
+
+      .active {
+        color: #ffffff;
+        background-color: #045d8b;
+      }
+    }
+  }
+}
