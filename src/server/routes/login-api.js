@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const express = require("express");
 const { checkUser } = require("../models/db");
 const router = express.Router();
-const oauth = require("../oauth.json");
+const oauthKey = require("../oauth.json");
 
 router.get("/", async function (req, res, next) {
   const { id } = req.query;
@@ -23,7 +23,7 @@ router.get("/github", async function (req, res, next) {
   console.log(13);
 
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${oauth.client_id}&redirect_uri=http://localhost:3000/login/approval`
+    `https://github.com/login/oauth/authorize?client_id=${oauthKey.client_id}&redirect_uri=http://localhost:3000/login/approval`
   );
 });
 
@@ -33,26 +33,30 @@ router.get("/approval", async function (req, res, next) {
 
   const access_token = await axios
     .post(
-      `https://github.com/login/oauth/access_token?client_id=${oauth.client_id}&client_secret=${oauth.client_secret}&code=${code}`
+      `https://github.com/login/oauth/access_token?client_id=${oauthKey.client_id}&client_secret=${oauthKey.client_secret}&code=${code}`
     )
     .then((res) => {
       return res.data.split("&")[0].split("=")[1];
     });
   console.log(access_token);
-  oauth.access_token = access_token;
+  req.session.access_token = access_token;
   res.redirect("/");
 });
 
 router.get("/access", async function (req, res, next) {
-  const user_data = await axios
-    .get("https://api.github.com/user", {
-      headers: {
-        Authorization: `token ${oauth.access_token}`,
-      },
-    })
-    .then((res) => res) // res.data = user data
-    .catch((res) => res.response);
-  res.send({ status: user_data.status, data: user_data.data }); // 여기에 쌩 user_data 날리면 TypeError: Converting circular structure to JSON 뜸
+  if (!req.session.access_token) {
+    res.send({ status: 401, data: "" });
+  } else {
+    const user_data = await axios
+      .get("https://api.github.com/user", {
+        headers: {
+          Authorization: `token ${req.session.access_token}`,
+        },
+      })
+      .then((res) => res) // res.data = user data
+      .catch((res) => res.response);
+    res.send({ status: user_data.status, data: user_data.data }); // 여기에 쌩 user_data 날리면 TypeError: Converting circular structure to JSON 뜸
+  }
 });
 
 // 유저 확인
@@ -67,14 +71,14 @@ router.get("/user", async function (req, res, next) {
   res.status(200);
 });
 
-router.get("/*", async function (req, res, next) {
-  res.status(404);
-});
-
 router.get("/logout", async function (req, res, next) {
-  // 쿠키 지우는 과정
+  delete req.session.access_token;
   res.status(204);
   res.redirect("/");
+});
+
+router.get("/*", async function (req, res, next) {
+  res.status(404);
 });
 
 module.exports = router;
