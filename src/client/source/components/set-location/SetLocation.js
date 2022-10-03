@@ -3,6 +3,7 @@ import "./SetLocation.scss";
 import XMarkImg from "../../image/x-mark.svg";
 import { useEffect, useState } from "react";
 function SetLocation() {
+  // 이 방식이 맞나?
   const [btnActive1, setBtnActive1] = useState(false);
   const [btnActive2, setBtnActive2] = useState(false);
 
