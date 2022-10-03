@@ -13,14 +13,11 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, cb) => {
       try {
-        // profile로 들어온 사용자 정보를 활용
-        console.log(profile._json);
         const user = {
           name: profile._json.name,
           user_id: profile._json.login,
           address: "",
         };
-        // 연결해둔 mongoDB 내 User에서 검색
         // User에 없으면 추가로 저장
         if (!(await checkUserName(user.name))) {
           insertUser(user);

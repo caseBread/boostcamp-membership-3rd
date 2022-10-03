@@ -7,10 +7,6 @@ function Login() {
     location.href = "/login/github";
   }
 
-  function accessUser() {
-    axios.get("/login/access");
-  }
-
   return (
     <div className="login">
       <TopBar title="로그인" />

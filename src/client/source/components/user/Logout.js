@@ -4,7 +4,6 @@ import "./Logout.scss";
 
 function Logout(props) {
   function logoutBtn() {
-    console.log(333333);
     location.href = "/login/logout";
   }
 
