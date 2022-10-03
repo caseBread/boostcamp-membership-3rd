@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 const express = require("express");
 const passport = require("passport");
 const { isAuthenticated } = require("../controllers/authenticated");
@@ -19,9 +18,7 @@ router.get(
 );
 
 router.get("/logout", async function (req, res, next) {
-  req.session.destroy(() => {
-    req.session;
-  });
+  req.session.destroy(() => req.session);
   res.status(204).redirect("/");
 });
 
