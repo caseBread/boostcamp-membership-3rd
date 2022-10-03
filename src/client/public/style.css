@@ -74,7 +74,7 @@ title {
 .product {
   padding: 10px;
   display: flex;
-  border-bottom: 1px solid #999999; }
+  border-bottom: 0.5px solid #999999; }
   .product .picture {
     width: 40%; }
     .product .picture img {
@@ -110,16 +110,14 @@ title {
     justify-content: space-between; }
     .product .about .heart {
       margin: 0 auto; }
-    .product .about .chat-count {
+    .product .about .count > * {
       font-family: "Noto Sans KR";
       font-style: normal;
       font-size: 14px;
       font-weight: 400;
       color: #888888;
       margin: 0 auto;
-      padding: 3px; }
-      .product .about .chat-count .heart-img {
-        padding: 0px 4px; }
+      padding: 1px; }
 
 /*!****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/ProductList.scss ***!
