@@ -9,20 +9,12 @@ function User() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("/login/access").then((res) => {
-      console.log(res.data);
+    axios.get("/login").then((res) => {
       setResponse(res.data);
     });
   }, []);
 
-  if (response.status === 200) {
-    console.log("200");
-    return (
-      <div>
-        <Logout userName={response.data.name} />
-      </div>
-    );
-  } else if (response.status === 401) {
+  if (response.status === 401) {
     console.log("401");
     return (
       <div>
@@ -30,8 +22,11 @@ function User() {
       </div>
     );
   } else {
-    console.log("rendering error");
-    navigate(-1);
+    return (
+      <div>
+        <Logout userName={response.name} />
+      </div>
+    );
   }
 }
 

@@ -60,11 +60,25 @@ const createProductTable = async () => {
   }
 };
 
-const checkUser = async (id) => {
+const checkUserName = async (name) => {
   const connection = connectionPool.getConnection();
   const q = `
     SELECT * FROM user
-    WHERE user_id = "${id}"
+    WHERE name = "${name}";
+  `;
+
+  try {
+    return (await connection).query(q);
+  } catch (err) {
+    throw err;
+  }
+};
+
+const insertUser = async (obj) => {
+  const connection = connectionPool.getConnection();
+  const q = `
+    INSERT INTO user 
+    VALUES(${obj.user_id}, ${obj.name}, ${obj.address});
   `;
 
   try {
@@ -100,5 +114,6 @@ module.exports = {
   selectProductList,
   createProductTable,
   createUserTable,
-  checkUser,
+  checkUserName,
+  insertUser,
 };

@@ -7,6 +7,9 @@ const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
 const port = 3000;
 const indexRouter = require("./routes/index");
+const passport = require("passport");
+const oauth = require("./oauth.json");
+var GitHubStrategy = require("passport-github").Strategy;
 
 const app = express();
 
@@ -21,6 +24,10 @@ const sessionObj = {
   },
 };
 app.use(session(sessionObj));
+
+require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 //app.set("views", path.join(__dirname, "views"));
