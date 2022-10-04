@@ -1,0 +1,17 @@
+.main-page {
+  width: 100%;
+  height: 100%;
+  #create-product-btn {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+
+    width: 56px;
+    height: 56px;
+
+    background: #045d8b;
+    border: none;
+    border-radius: 100px;
+  }
+}

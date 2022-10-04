@@ -1,0 +1,8 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  input[type="text"] {
+    border: none;
+    border-top: 1px solid #d7d7d7;
+  }
+}
