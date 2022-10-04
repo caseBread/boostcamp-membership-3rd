@@ -1,8 +1,53 @@
+@import "../styles/style.scss";
+
 .post {
-  display: flex;
-  flex-direction: column;
-  input[type="text"] {
-    border: none;
-    border-top: 1px solid #d7d7d7;
+  .post-main {
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    #add-img-btn {
+      width: 76px;
+      height: 76px;
+      background: #efefef;
+
+      border: 1px solid #c4c4c4;
+      border-radius: 8px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      margin: 16px 0px;
+
+      #file-count {
+        @include fontSetting(12px, 400, #888888);
+      }
+    }
+
+    input[type="text"] {
+      border: none;
+      border-top: 1px solid #d7d7d7;
+      padding: 20px 0px;
+    }
+  }
+
+  #seller-address {
+    @include fontSetting(14px, 400);
+
+    position: absolute;
+    width: 95%; // 여게 왜 100%하면 삐져나올까
+
+    padding: 8px;
+
+    bottom: 0;
+    border-top: 1px solid #c4c4c4;
+
+    #black-marker-img {
+      width: 16px;
+      margin-right: 4px;
+    }
   }
 }

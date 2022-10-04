@@ -1,6 +1,6 @@
 import "./main-top-bar.scss";
 import categoryImg from "../../image/category.svg";
-import markerImg from "../../image/marker.svg";
+import whiteMarkerImg from "../../image/white-marker.svg";
 import userImg from "../../image/user.svg";
 import menuImg from "../../image/menu.svg";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ function MainTopBar() {
       </Link>
       <span className="set-location">
         <Link to="/set-location" className="set-location-btn">
-          <img src={markerImg} alt=""></img>
+          <img src={whiteMarkerImg} alt=""></img>
         </Link>
         <span className="location">역삼동</span>
       </span>
