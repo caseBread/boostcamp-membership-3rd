@@ -1,0 +1,97 @@
+@import "../../styles/style.scss";
+
+.post {
+  .post-main {
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    .img-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+
+      #add-img-btn {
+        width: 76px;
+        min-width: 76px;
+        height: 76px;
+        background: #efefef;
+
+        border: 1px solid #c4c4c4;
+        border-radius: 8px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin: 16px 16px 16px 0px;
+
+        #file-count {
+          @include fontSetting(12px, 400, #888888);
+        }
+      }
+
+      .img-bundle {
+        display: flex;
+        align-items: center;
+
+        position: relative;
+
+        .x-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 24px;
+          height: 24px;
+          background-color: #222222;
+          border-radius: 100px;
+
+          float: right;
+          position: relative;
+          right: 14px;
+          bottom: 36px;
+
+          img {
+            width: 16px;
+          }
+        }
+
+        .img-preview {
+          width: 76px;
+          min-width: 76px;
+          height: 76px;
+
+          border: 1px solid #d7d7d7;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    input[type="text"] {
+      border: none;
+      border-top: 1px solid #d7d7d7;
+      padding: 20px 0px;
+    }
+  }
+
+  #seller-address {
+    @include fontSetting(14px, 400);
+
+    position: absolute;
+    width: 95%; // 여게 왜 100%하면 삐져나올까
+
+    padding: 8px;
+
+    bottom: 0;
+    border-top: 1px solid #c4c4c4;
+
+    #black-marker-img {
+      width: 16px;
+      margin-right: 4px;
+    }
+  }
+}

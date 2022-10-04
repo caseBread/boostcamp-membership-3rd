@@ -1,5 +1,6 @@
 import "./TopBar.scss";
 import leftArrowImg from "../../image/left-arrow.svg";
+import checkImg from "../../image/check.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 function TopBar(props) {
@@ -16,7 +17,12 @@ function TopBar(props) {
         <img src={leftArrowImg} alt=""></img>
       </span>
       <span className="title">{title}</span>
-      <span className="temp"></span>
+      <span
+        className="temp"
+        style={{ visibility: props.check ? "visible" : "hidden" }}
+      >
+        <img src={checkImg} alt=""></img>
+      </span>
     </div>
   );
 }

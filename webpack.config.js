@@ -8,7 +8,7 @@ module.exports = {
   entry: path.resolve(__dirname, "./src/client/source/index.js"),
   output: {
     path: path.resolve(__dirname, "./src/client/public"),
-    filename: "index-build.js",
+    filename: "indexBuild.js",
   },
   module: {
     rules: [

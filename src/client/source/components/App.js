@@ -6,6 +6,7 @@ import Menu from "./menu/Menu";
 import SetLocation from "./set-location/SetLocation";
 import Main from "./Main";
 import User from "./user/User";
+import Post from "./post/Post";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/set-location" element={<SetLocation />}></Route>
         <Route path="/user" element={<User />}></Route>
         <Route path="/menu" element={<Menu />}></Route>
+        <Route path="/post" element={<Post />}></Route>
       </Routes>
     </BrowserRouter>
   );
