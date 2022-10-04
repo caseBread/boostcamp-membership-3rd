@@ -6,7 +6,7 @@ import Menu from "./menu/Menu";
 import SetLocation from "./set-location/SetLocation";
 import Main from "./Main";
 import User from "./user/User";
-import Post from "./Post";
+import Post from "./post/Post";
 
 function App() {
   return (
