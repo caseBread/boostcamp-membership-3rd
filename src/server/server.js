@@ -10,6 +10,7 @@ const indexRouter = require("./routes/index");
 const passport = require("passport");
 const oauth = require("./oauth.json");
 var GitHubStrategy = require("passport-github").Strategy;
+const multer = require("multer");
 
 const app = express();
 

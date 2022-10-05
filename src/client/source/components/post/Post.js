@@ -8,6 +8,10 @@ import ImgBundle from "./ImgBundle";
 
 function Post() {
   const [imageSrc, setImageSrc] = useState([]);
+  // const [image, setImage] = useState([]);
+  // const [title, setTitle] = useState("");
+  // const [price, setPrice] = useState(0);
+  // const [content, setContent] = useState("");
 
   const onRemove = (id) => {
     console.log(imageSrc);
@@ -15,11 +19,15 @@ function Post() {
   };
 
   function printFile(event) {
-    const reader = new FileReader();
+    console.log(event.target.files);
+
     [...event.target.files].forEach((file, i) => {
+      console.log(i);
+      const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (event) => {
-        setImageSrc(
+        // setImage(image.concat(event.target.result));
+        setImageSrc((imageSrc) =>
           imageSrc.concat(
             <ImgBundle
               key={i}
@@ -35,7 +43,7 @@ function Post() {
 
   return (
     <div className="post">
-      <form method="post" action="/product/new">
+      <form method="post" action="/product/new" encType="multipart/form-data">
         <TopBar title="글쓰기" check={true} />
         <div className="post-main">
           <div className="img-container">
@@ -45,6 +53,7 @@ function Post() {
               name="image"
               style={{ display: "none" }}
               onChange={printFile}
+              multiple
             />
             <label id="add-img-btn" for="add-img">
               <img src={defaultImageImg} alt="" />
@@ -58,7 +67,6 @@ function Post() {
             type="text"
             name="title"
             placeholder="글 제목"
-            required
           />
           <input id="product-price" type="text" placeholder="가격(선택사항)" />
           <input

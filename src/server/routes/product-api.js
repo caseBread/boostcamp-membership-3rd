@@ -1,7 +1,9 @@
 const express = require("express");
+const multer = require("multer");
 const { redirect } = require("react-router-dom");
 const { selectProductList } = require("../models/db");
 const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
 router.get("/list", async function (req, res, next) {
   const { address } = req.query;
@@ -15,8 +17,9 @@ router.get("/list", async function (req, res, next) {
   }
 });
 
-router.post("/new", async function (req, res, next) {
+router.post("/new", upload.array("image"), async function (req, res, next) {
   console.log(req.body);
+  req.files.map((file) => console.log(file.filename));
   res.redirect("/");
 });
 
