@@ -32,36 +32,49 @@ function Post() {
       };
     });
   }
+
   return (
     <div className="post">
-      <TopBar title="글쓰기" check={true} />
-      <div className="post-main">
-        <div className="img-container">
-          <input
-            type="file"
-            id="add-img"
-            style={{ display: "none" }}
-            onChange={printFile}
-          />
-          <label id="add-img-btn" for="add-img">
-            <img src={defaultImageImg} alt="" />
-            <span id="file-count">{imageSrc.length}/10</span>
-          </label>
-          {imageSrc}
-        </div>
+      <form method="post" action="/product/new">
+        <TopBar title="글쓰기" check={true} />
+        <div className="post-main">
+          <div className="img-container">
+            <input
+              type="file"
+              id="add-img"
+              name="image"
+              style={{ display: "none" }}
+              onChange={printFile}
+            />
+            <label id="add-img-btn" for="add-img">
+              <img src={defaultImageImg} alt="" />
+              <span id="file-count">{imageSrc.length}/10</span>
+            </label>
+            {imageSrc}
+          </div>
 
-        <input id="product-title" type="text" placeholder="글 제목" required />
-        <input id="product-price" type="text" placeholder="가격(선택사항)" />
-        <input
-          id="product-content"
-          type="text"
-          placeholder="게시글 내용을 작성해주세요."
-        />
-      </div>
-      <div id="seller-address">
-        <img id="black-marker-img" src={blackMarkerImg} alt="" />
-        역삼동
-      </div>
+          <input
+            id="product-title"
+            type="text"
+            name="title"
+            placeholder="글 제목"
+            required
+          />
+          <input id="product-price" type="text" placeholder="가격(선택사항)" />
+          <input
+            id="product-content"
+            type="text"
+            name="content"
+            placeholder="게시글 내용을 작성해주세요."
+            required
+          />
+        </div>
+        <div id="seller-address">
+          <input type="hidden" name="address" value="역삼동" />
+          <img id="black-marker-img" src={blackMarkerImg} alt="" />
+          역삼동
+        </div>
+      </form>
     </div>
   );
 }
