@@ -11,8 +11,12 @@ const passport = require("passport");
 const oauth = require("./oauth.json");
 var GitHubStrategy = require("passport-github").Strategy;
 const multer = require("multer");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {});
 
 // session setting
 const sessionObj = {
@@ -63,8 +67,13 @@ app.use(function (req, res, next) {
 //   res.render("error");
 // });
 
-app.listen(port, () => {
-  console.log(`서버가 생성되었습니다. port:${port}`);
+io.on("connection", (socket) => {
+  console.log("server connect!" + socket.id);
 });
+httpServer.listen(port);
+
+// app.listen(port, () => {
+//   console.log(`서버가 생성되었습니다. port:${port}`);
+// });
 
 module.exports = app;
