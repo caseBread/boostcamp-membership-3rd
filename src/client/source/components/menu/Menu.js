@@ -1,20 +1,22 @@
 import { useState } from "react";
-import Chat from "./chat-list/Chat";
 import TopBar from "../top-bar/TopBar";
 import "./Menu.scss";
-import Sell from "./sell-list/Sell";
-import Like from "./like-list/Like";
+import SellList from "./sell-list/SellList";
+import ChatList from "./chat/ChatList";
+import LikeList from "./like-list/LikeList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Chat from "./chat/Chat";
 
 function Menu() {
   const [content, setContent] = useState();
 
   const contentSetting = ({ target }) => {
     if (target.id === "sell-list") {
-      setContent(<Sell />);
+      setContent(<SellList />);
     } else if (target.id === "chat-list") {
-      setContent(<Chat />);
+      setContent(<ChatList />);
     } else if (target.id === "like-list") {
-      setContent(<Like />);
+      setContent(<LikeList />);
     }
   };
 

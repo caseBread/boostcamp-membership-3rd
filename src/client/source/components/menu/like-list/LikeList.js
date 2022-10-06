@@ -1,4 +1,4 @@
-function Like() {
+function LikeList() {
   return (
     <div className="like">
       <p>this is like list</p>
@@ -6,4 +6,4 @@ function Like() {
   );
 }
 
-export default Like;
+export default LikeList;
