@@ -1,0 +1,33 @@
+@import "../../../styles/style.scss";
+
+.chat {
+  .chat-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .other,
+    .me {
+      margin: 16px;
+      padding: 8px;
+    }
+
+    .other {
+      @include fontSetting(14px, 500);
+
+      float: left;
+
+      border: 1px solid #045d8b;
+      border-radius: 0px 8px 8px 8px;
+    }
+
+    .me {
+      @include fontSetting(14px, 500, #ffffff);
+
+      float: right;
+
+      background: #045d8b;
+      border-radius: 8px 0px 8px 8px;
+    }
+  }
+}

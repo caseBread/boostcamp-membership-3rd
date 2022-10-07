@@ -71,9 +71,10 @@ io.on("connection", (socket) => {
   console.log("server connect!" + socket.id);
   socket.on("client_to_server", (msg) => {
     console.log(msg);
-    socket.broadcast.emit("server_to_client", msg);
+    io.emit("server_to_client", msg);
   });
 });
+
 httpServer.listen(port);
 
 // app.listen(port, () => {
