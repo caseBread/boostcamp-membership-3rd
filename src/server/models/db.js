@@ -104,6 +104,19 @@ const selectProductList = async (address) => {
   }
 };
 
+const selectUserName = async (user_id) => {
+  const connection = connectionPool.getConnection();
+  const q = `
+    SELECT * FROM user
+    WHERE user_id = "${user_id}";
+  `;
+  try {
+    return (await connection).query(q);
+  } catch (err) {
+    throw err;
+  }
+};
+
 // 서버 최초 실행 시 테이블 생성
 (async () => {
   await createUserTable();
@@ -116,4 +129,5 @@ module.exports = {
   createUserTable,
   checkUserName,
   insertUser,
+  selectUserName,
 };
