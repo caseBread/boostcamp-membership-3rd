@@ -2,6 +2,7 @@ import TopBar from "../../top-bar/TopBar";
 import { io } from "socket.io-client";
 import "./Chat.scss";
 import { useEffect, useState } from "react";
+import sendBtnImg from "../../../image/send-btn.svg";
 
 const socket = io();
 
@@ -47,11 +48,19 @@ function Chat() {
     <div className="chat">
       <TopBar title="UserE" />
 
-      <form onSubmit={submitChat}>
-        <input type="text" name="chat" autoComplete="off" />
-        <button>send</button>
-      </form>
       <div className="chat-content">{tempChat}</div>
+      <form className="input" onSubmit={submitChat}>
+        <input
+          className="input-text"
+          type="text"
+          name="chat"
+          autoComplete="off"
+          placeholder="메시지를 입력하세요."
+        />
+        <button className="input-btn">
+          <img className="send-btn-img" src={sendBtnImg} alt=""></img>
+        </button>
+      </form>
     </div>
   );
 }
