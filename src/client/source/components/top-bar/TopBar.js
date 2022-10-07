@@ -17,12 +17,13 @@ function TopBar(props) {
         <img src={leftArrowImg} alt=""></img>
       </span>
       <span className="title">{title}</span>
-      <span
+      <button
+        type="submit"
         className="temp"
         style={{ visibility: props.check ? "visible" : "hidden" }}
       >
         <img src={checkImg} alt=""></img>
-      </span>
+      </button>
     </div>
   );
 }

@@ -10,8 +10,13 @@ const indexRouter = require("./routes/index");
 const passport = require("passport");
 const oauth = require("./oauth.json");
 var GitHubStrategy = require("passport-github").Strategy;
+const multer = require("multer");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {});
 
 // session setting
 const sessionObj = {
@@ -62,8 +67,24 @@ app.use(function (req, res, next) {
 //   res.render("error");
 // });
 
-app.listen(port, () => {
-  console.log(`서버가 생성되었습니다. port:${port}`);
+io.on("connection", (socket) => {
+  console.log("server connect!" + socket.id);
+
+  /**
+   * @params msg : { name(string), msg(string) }
+   */
+  socket.on("client_to_server", (msg) => {
+    console.log(msg); // 모든 메시지가 열로 온다  => db
+    io.emit("server_to_client", msg);
+  });
 });
+
+httpServer.listen(port, () => {
+  console.log("create server, port : " + port);
+});
+
+// app.listen(port, () => {
+//   console.log(`서버가 생성되었습니다. port:${port}`);
+// });
 
 module.exports = app;

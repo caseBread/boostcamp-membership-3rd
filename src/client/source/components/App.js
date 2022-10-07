@@ -7,6 +7,7 @@ import SetLocation from "./set-location/SetLocation";
 import Main from "./Main";
 import User from "./user/User";
 import Post from "./post/Post";
+import Chat from "./menu/chat/Chat";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/user" element={<User />}></Route>
         <Route path="/menu" element={<Menu />}></Route>
         <Route path="/post" element={<Post />}></Route>
+        <Route path="/chat" element={<Chat />}></Route> {/* 임시 route */}
       </Routes>
     </BrowserRouter>
   );
