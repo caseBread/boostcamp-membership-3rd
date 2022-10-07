@@ -1,4 +1,4 @@
-function Sell() {
+function SellList() {
   return (
     <div className="sell">
       <p>this is sell list;</p>
@@ -6,4 +6,4 @@ function Sell() {
   );
 }
 
-export default Sell;
+export default SellList;

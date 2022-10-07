@@ -2,6 +2,22 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/top-bar/TopBar.scss ***!
   \*******************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!**********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/category/Category.scss ***!
+  \**********************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/Menu.scss ***!
+  \**************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!*******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/chat/Chat.scss ***!
+  \*******************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!*****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/set-location/SetLocation.scss ***!
+  \*****************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
 /*!************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/Product.scss ***!
   \************************************************************************************************************************************/
@@ -17,6 +33,10 @@
 /*!****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/user/Logout.scss ***!
   \****************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/post/Post.scss ***!
+  \**************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap);
 /*!********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/App.scss ***!
@@ -50,23 +70,179 @@ title {
     font-weight: 400;
     color: #222222; }
   .bar-background .temp {
+    padding: 8px;
+    background: none;
+    border: none; }
+
+/*!**************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/category/Category.scss (1) ***!
+  \**************************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+.category .container {
+  display: grid;
+  margin: 24px;
+  gap: 10% 5%;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-content: stretch; }
+  .category .container .item {
+    margin: 0 auto; }
+    .category .container .item .icon {
+      margin: 0 auto;
+      height: 40px;
+      width: 40px;
+      background-color: #f6f6f6;
+      border: 1px solid #d7d7d7;
+      border-radius: 6px; }
+    .category .container .item .item-name {
+      margin: 0 auto;
+      font-family: "Noto Sans KR";
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 400;
+      color: #222222;
+      text-align: center; }
+
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/Menu.scss (1) ***!
+  \******************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+.menu .menu-list {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #f6f6f6; }
+  .menu .menu-list > * {
+    margin: 0 auto; }
+  .menu .menu-list label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%; }
+  .menu .menu-list input[type="radio"] {
+    display: none; }
+  .menu .menu-list input[type="radio"]:checked + label {
+    border-bottom: 2px solid #045d8b; }
+
+/*!***********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/chat/ChatList.scss ***!
+  \***********************************************************************************************************************************************/
+
+/*!***********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/chat/Chat.scss (1) ***!
+  \***********************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+.chat .chat-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+  .chat .chat-content .other,
+  .chat .chat-content .me {
+    margin: 16px;
     padding: 8px; }
+  .chat .chat-content .other {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222222;
+    float: left;
+    border: 1px solid #045d8b;
+    border-radius: 0px 8px 8px 8px; }
+  .chat .chat-content .me {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    float: right;
+    background: #045d8b;
+    border-radius: 8px 0px 8px 8px; }
 
-/*!**********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/category/Category.scss ***!
-  \**********************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/set-location/SetLocation.scss (1) ***!
+  \*********************************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
 
-/*!**************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/menu/Menu.scss ***!
-  \**************************************************************************************************************************************/
-
-/*!*****************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/set-location/SetLocation.scss ***!
-  \*****************************************************************************************************************************************************/
+.set-location .main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  text-align: center; }
+  .set-location .main .notice {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 400;
+    color: #828282; }
+  .set-location .main .buttons .address-btn {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 600;
+    color: #045d8b;
+    margin: 10% 5%;
+    width: 40%;
+    padding: 6px 16px;
+    background: #ffffff;
+    border: 1.5px solid #045d8b;
+    border-radius: 8px; }
+    .set-location .main .buttons .address-btn .address-text {
+      float: left; }
+    .set-location .main .buttons .address-btn .x-mark {
+      float: right; }
+  .set-location .main .buttons .active {
+    color: #ffffff;
+    background-color: #045d8b; }
 
 /*!*********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/Main.scss ***!
   \*********************************************************************************************************************************/
+.main-page {
+  width: 100%;
+  height: 100%; }
+  .main-page #create-product-btn {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+    width: 56px;
+    height: 56px;
+    background: #045d8b;
+    border: none;
+    border-radius: 100px; }
 
 /*!****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/Product.scss (1) ***!
@@ -233,13 +409,95 @@ main {
     color: #ffffff;
     background-color: #045d8b; }
 
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/components/post/Post.scss (1) ***!
+  \******************************************************************************************************************************************/
+title {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222; }
+
+.post .post-main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px; }
+  .post .post-main .img-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto; }
+    .post .post-main .img-container #add-img-btn {
+      width: 76px;
+      min-width: 76px;
+      height: 76px;
+      background: #efefef;
+      border: 1px solid #c4c4c4;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 16px 16px 16px 0px; }
+      .post .post-main .img-container #add-img-btn #file-count {
+        font-family: "Noto Sans KR";
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 400;
+        color: #888888; }
+    .post .post-main .img-container .img-bundle {
+      display: flex;
+      align-items: center;
+      position: relative; }
+      .post .post-main .img-container .img-bundle .x-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        background-color: #222222;
+        border-radius: 100px;
+        float: right;
+        position: relative;
+        right: 14px;
+        bottom: 36px; }
+        .post .post-main .img-container .img-bundle .x-button img {
+          width: 16px; }
+      .post .post-main .img-container .img-bundle .img-preview {
+        width: 76px;
+        min-width: 76px;
+        height: 76px;
+        border: 1px solid #d7d7d7;
+        border-radius: 10px; }
+  .post .post-main input[type="text"] {
+    border: none;
+    border-top: 1px solid #d7d7d7;
+    padding: 20px 0px; }
+
+.post #seller-address {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222;
+  position: absolute;
+  width: 95%;
+  padding: 8px;
+  bottom: 0;
+  border-top: 1px solid #c4c4c4; }
+  .post #seller-address #black-marker-img {
+    width: 16px;
+    margin-right: 4px; }
+
 /*!***********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/source/index.scss ***!
   \***********************************************************************************************************************/
-html,
-body {
-  width: 320px;
-  height: 510px;
-  margin: 0 auto;
-  border: 1px solid #d7d7d7; }
+@media screen and (min-width: 320px) {
+  html,
+  body {
+    width: 320px;
+    height: 510px;
+    margin: 0 auto;
+    border: 1px solid #d7d7d7; } }
 
