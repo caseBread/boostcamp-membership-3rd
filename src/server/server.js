@@ -69,13 +69,19 @@ app.use(function (req, res, next) {
 
 io.on("connection", (socket) => {
   console.log("server connect!" + socket.id);
+
+  /**
+   * @params msg : { name(string), msg(string) }
+   */
   socket.on("client_to_server", (msg) => {
-    console.log(msg);
+    console.log(msg); // 모든 메시지가 열로 온다  => db
     io.emit("server_to_client", msg);
   });
 });
 
-httpServer.listen(port);
+httpServer.listen(port, () => {
+  console.log("create server, port : " + port);
+});
 
 // app.listen(port, () => {
 //   console.log(`서버가 생성되었습니다. port:${port}`);
