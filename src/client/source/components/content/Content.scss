@@ -1,0 +1,31 @@
+@import "../../styles/style.scss";
+
+.content {
+  width: 100%;
+  .product-image {
+    width: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.24) 0%,
+      rgba(0, 0, 0, 0) 16.52%,
+      rgba(0, 0, 0, 0) 87.36%,
+      rgba(0, 0, 0, 0.24) 100%
+    );
+  }
+
+  .product-name {
+    @include fontSetting(18px, 400);
+  }
+
+  .product-category-and-update-time {
+    @include fontSetting(12px, 400, #888888);
+  }
+
+  .product-content {
+    @include fontSetting(16px, 400);
+  }
+
+  .product-count {
+    @include fontSetting(12px, 400, #888888);
+  }
+}

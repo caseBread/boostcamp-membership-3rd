@@ -10,7 +10,8 @@ function Product(props) {
 
   return (
     <Link
-      to=""
+      to="/content"
+      state={{ object: props.object }}
       className="product"
       id={obj.product_id}
       style={{ textDecoration: "none" }}
