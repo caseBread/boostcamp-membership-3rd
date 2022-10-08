@@ -1,6 +1,7 @@
 const passport = require("passport");
 const GitHubStrategy = require("passport-github");
 const { insertUser, checkUserName } = require("../models/db");
+const userTable = require("../models/user.db");
 const oauth = require("../oauth.json");
 
 // strategy를 미들웨어로
@@ -19,8 +20,8 @@ passport.use(
           address: "",
         };
         // User에 없으면 추가로 저장
-        if (!(await checkUserName(user.name))) {
-          insertUser(user);
+        if (!(await userTable.check(user.name))) {
+          userTable.insert(user);
         }
 
         return cb(null, user); // req에 user 삽입

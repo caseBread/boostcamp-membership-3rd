@@ -68,7 +68,12 @@ function Post() {
             name="title"
             placeholder="글 제목"
           />
-          <input id="product-price" type="text" placeholder="가격(선택사항)" />
+          <input
+            id="product-price"
+            type="text"
+            name="price"
+            placeholder="가격(선택사항)"
+          />
           <input
             id="product-content"
             type="text"
