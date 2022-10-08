@@ -7,6 +7,10 @@ const connectionPool = mysql.createPool({
   database: "fleamarketdb",
 });
 
+const userTable = {};
+
+const productTable = {};
+
 const createUserTable = async () => {
   const connection = connectionPool.getConnection();
   const q = `
@@ -88,6 +92,20 @@ const insertUser = async (obj) => {
   }
 };
 
+const insertProduct = async (obj) => {
+  const connection = connectionPool.getConnection();
+  const q = `
+    INSERT INTO product 
+    VALUES(${obj});
+  `;
+
+  try {
+    return (await connection).query(q);
+  } catch (err) {
+    throw err;
+  }
+};
+
 const selectProductList = async (address) => {
   const connection = connectionPool.getConnection();
   const q = `
@@ -130,4 +148,5 @@ module.exports = {
   checkUserName,
   insertUser,
   selectUserName,
+  insertProduct,
 };
