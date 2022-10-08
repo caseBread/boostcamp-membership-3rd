@@ -40,17 +40,8 @@ const productTable = {
   insert: async (obj) => {
     const connection = connectionPool.getConnection();
     const q = `
-        INSERT INTO product
-        VALUES(${
-          (obj.product_name,
-          obj.address,
-          obj.price,
-          obj.product_image,
-          obj.category,
-          obj.product_content,
-          obj.product_status,
-          obj.seller_id)
-        });
+        INSERT INTO product(product_name, address, price, product_image, category, product_content, product_status, seller_id)
+        VALUES("${obj.product_name}", "${obj.address}","${obj.price}","${obj.product_image}","${obj.category}","${obj.product_content}","${obj.product_status}","${obj.seller_id}");
       `;
 
     try {

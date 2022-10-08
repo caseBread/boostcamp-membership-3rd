@@ -30,14 +30,11 @@ const product = {
     await productTable.insert(product_obj);
 
     // product table에 집어넣은 후 자동 생성되는 id를 다시 가져온다. (리팩토링 필요 아마도..?)
-    const product_id = await productTable.selectIdWhereName(inputList.title);
+    const product_data = await productTable.selectIdWhereName(inputList.title);
+    const product_id = product_data[0][0].product_id;
 
     imageList.map(async (image) => {
-      const image_obj = {
-        product_id: product_id,
-        path: image,
-      };
-      await imageTable.insert(image_obj);
+      await imageTable.insert({ id: product_id, path: image });
     });
 
     res.redirect("/");

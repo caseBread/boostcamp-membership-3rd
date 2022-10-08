@@ -13,9 +13,8 @@ const imageTable = {
     const q = `
         CREATE TABLE IF NOT EXISTS image
         (
-            product_id INT NOT NULL AUTO_INCREMENT,
-            image VARCHAR(100) NOT NULL,
-            PRIMARY KEY (product_id)
+            product_id INT NOT NULL,
+            image VARCHAR(100) NOT NULL
         );
     `;
 
@@ -30,7 +29,7 @@ const imageTable = {
     const connection = connectionPool.getConnection();
     const q = `
         INSERT INTO image
-        VALUES (${(obj.id, obj.path)});
+        VALUES ("${obj.id}", "${obj.path}");
     `;
 
     try {

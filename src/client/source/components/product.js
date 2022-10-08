@@ -17,7 +17,7 @@ function Product(props) {
       style={{ textDecoration: "none" }}
     >
       <div className="picture">
-        <img src={obj.product_image}></img>
+        <img src={"./" + obj.product_image + ".png"} />
       </div>
       <div className="explain">
         <div className="product-name">{obj.product_name}</div>
