@@ -10,13 +10,14 @@ function Product(props) {
 
   return (
     <Link
-      to=""
+      to="/content"
+      state={{ object: props.object }}
       className="product"
       id={obj.product_id}
       style={{ textDecoration: "none" }}
     >
       <div className="picture">
-        <img src={obj.product_image}></img>
+        <img src={"./" + obj.product_image + ".png"} />
       </div>
       <div className="explain">
         <div className="product-name">{obj.product_name}</div>
